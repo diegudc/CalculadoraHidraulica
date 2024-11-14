@@ -147,7 +147,7 @@ def show_results_ej1(input1, input2, input3, input4, input5, input6 , input7, in
     df = df.round(2)  # 2 decimales
     st.dataframe(df)
 
-def show_results_ej2 (input1, input2, input3, input4, input5, input6 , input7, input8):
+def show_results_ej2 (input1, input2, input3, input4, input5, input6 , input7, input8, he_turbina, vol_deposito, t_turbinado):
     vol = input2*input3
     hs_turbina = input4-he_turbina
     coef_potencia = input5 *input6*input7*input8
@@ -160,7 +160,7 @@ def show_results_ej2 (input1, input2, input3, input4, input5, input6 , input7, i
         # Crear una tabla con resultados
     data = {'Pluviometria anual [l]': [Pluviometria_anual],
     "Coeficiente de potencia" : [coef_potencia], 
-    "Caudal turbiando [m^3/s]" : [q_turbinado],
+    "Caudal turbinado [m^3/s]" : [q_turbinado],
     'Potencia turbinado en 1h [W]': [P_turbina], 
     "Energia generada por deposito  [Wh/deposito]" : [E_electrica],
     "Depositos al año" : [Depositos_anio],
@@ -169,7 +169,7 @@ def show_results_ej2 (input1, input2, input3, input4, input5, input6 , input7, i
     df = df.round(2)  # 2 decimales
     st.dataframe(df)
 
-def show_results_ej3 (input1, input2, input3, input4, input5, input6 , input7, input8):
+def show_results_ej3 (input1, input2, input3, input4, input5, input6 , input7, input8, he_turbina, vol_deposito, t_turbinado):
     vol = input2*input3
     hs_turbina = input4-he_turbina
     coef_potencia = input5 *input6*input7*input8
@@ -182,7 +182,7 @@ def show_results_ej3 (input1, input2, input3, input4, input5, input6 , input7, i
         # Crear una tabla con resultados
     data = {'Pluviometria anual [l]': [Pluviometria_anual],
     "Coeficiente de potencia" : [coef_potencia], 
-    "Caudal turbiando [m^3/s]" : [q_turbinado],
+    "Caudal turbinado [m^3/s]" : [q_turbinado],
     'Potencia turbinado en 1h [W]': [P_turbina], 
     "Energia generada por deposito  [Wh/deposito]" : [E_electrica],
     "Depositos al año" : [Depositos_anio],
@@ -206,7 +206,7 @@ if option == "Ejercicio 1":
     st.markdown("""
         <div class="header">
         <h3>Ejercicio 1:</h3>
-        <p>¿Cuántas ciclos de lavadorahay que usar para recargar la batería de un ordenador?</p>
+        <p>¿Cuántas ciclos de lavadora hay que usar para recargar la batería de un ordenador?</p>
         <p>Datos disponibles:</p>
         <ul>
             <li>Volumen de agua de la lavadora: 181 litros</li>
@@ -260,7 +260,7 @@ elif option == "Ejercicio 2":
         </ul>
         </div>
         """, unsafe_allow_html=True)
-    
+    st.write("")
     # Crear los campos de entrada
     he_turbina = st.number_input("Altura de entrada de la turbina [m]", value = 9)
     vol_deposito = st.number_input("Volumen del depósito [l]", value = 1000)
@@ -279,7 +279,7 @@ elif option == "Ejercicio 2":
 
     # Botón de calcular resultado
     if st.button("Calcular resultado"):
-        show_results_ej2(input1, input2, input3, input4, input5, input6 , input7, input8)
+        show_results_ej2(input1, input2, input3, input4, input5, input6 , input7, input8, he_turbina, vol_deposito, t_turbinado)
 
     # Botón de ver otro ejercicio 
     if st.button("Ver otro ejercicio"):
@@ -294,7 +294,7 @@ elif option == "Caso Particular":
             <h3>Calcular tu propio caso de hidráulica mediante pluviometría:</h3>
             </div>
             """, unsafe_allow_html=True)
-        
+    st.write("")    
     # Crear los campos de entrada
     he_turbina = st.number_input("Altura de entrada de la turbina [m]", value = 9)
     vol_deposito = st.number_input("Volumen del depósito [l]", value = 1000)
@@ -313,4 +313,5 @@ elif option == "Caso Particular":
 
     # Botón de calcular resultado
     if st.button("Calcular resultado"):
-        show_results_ej3(input1, input2, input3, input4, input5, input6 , input7, input8)
+        show_results_ej3(input1, input2, input3, input4, input5, input6 , input7, input8, he_turbina, vol_deposito, t_turbinado)
+
